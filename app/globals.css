@@ -2,26 +2,94 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@layer base {
+  :root {
+    /* MOVEK Dark Navy Design System */
+    --background: 216 60% 9%;         /* #0A1628 */
+    --foreground: 0 0% 100%;          /* #FFFFFF */
+
+    --card: 213 60% 15%;              /* #0F2040 */
+    --card-foreground: 0 0% 100%;     /* #FFFFFF */
+
+    --popover: 213 60% 15%;           /* #0F2040 */
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 25 100% 50%;           /* #FF6B00 Orange */
+    --primary-foreground: 0 0% 100%;  /* White on orange */
+
+    --secondary: 213 60% 15%;         /* #0F2040 */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 213 50% 18%;
+    --muted-foreground: 215 20% 65%;  /* #94A3B8 */
+
+    --accent: 25 100% 50%;            /* #FF6B00 */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;         /* #EF4444 */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 213 52% 24%;            /* #1E3A5F */
+    --input: 213 52% 24%;             /* #1E3A5F */
+    --ring: 25 100% 50%;              /* #FF6B00 */
+
+    --chart-1: 25 100% 50%;
+    --chart-2: 142 71% 45%;
+    --chart-3: 213 60% 15%;
+    --chart-4: 215 20% 65%;
+    --chart-5: 0 84% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom MOVEK tokens */
+    --movek-navy: #0A1628;
+    --movek-card: #0F2040;
+    --movek-orange: #FF6B00;
+    --movek-text: #FFFFFF;
+    --movek-text-secondary: #94A3B8;
+    --movek-border: #1E3A5F;
+    --movek-success: #22C55E;
+    --movek-error: #EF4444;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--movek-navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--movek-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--movek-orange);
+}
+
+/* Selection */
+::selection {
+  background: rgba(255, 107, 0, 0.3);
+  color: white;
 }
