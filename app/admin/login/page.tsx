@@ -43,7 +43,7 @@ export default function AdminLoginPage() {
                             <Input
                                 id="email"
                                 name="email"
-                                type="email"
+                                type="text"
                                 placeholder="prenom.nom@etrend-maroc.com"
                                 required
                                 className="bg-[#0A1628] border-[#1E3A5F] text-white focus:border-[#FF6B00] h-12"
