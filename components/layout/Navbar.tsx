@@ -54,7 +54,7 @@ export default async function Navbar() {
                 <Link href="/" className="flex items-center gap-2">
                     <div className="flex items-center">
                         <span className="text-2xl font-bold text-white">
-                            MOV<span className="text-movek-orange">EK</span>
+                            MO<span className="text-movek-orange">V</span>EK
                         </span>
                     </div>
                 </Link>
@@ -117,7 +117,7 @@ export default async function Navbar() {
                         className="w-80 border-movek-border bg-movek-navy"
                     >
                         <SheetTitle className="text-white">
-                            MOV<span className="text-movek-orange">EK</span>
+                            MO<span className="text-movek-orange">V</span>EK
                         </SheetTitle>
                         <nav className="mt-8 flex flex-col gap-2">
                             {navLinks.map((link) => (

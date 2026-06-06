@@ -43,7 +43,7 @@ export default function Footer() {
                     <div>
                         <Link href="/" className="inline-block">
                             <span className="text-2xl font-bold text-white">
-                                MOV<span className="text-movek-orange">EK</span>
+                                MO<span className="text-movek-orange">V</span>EK
                             </span>
                         </Link>
                         <p className="mt-3 text-sm text-movek-text-secondary">

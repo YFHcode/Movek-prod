@@ -105,7 +105,7 @@ export default async function HomePage() {
         />
 
         <div className="relative mx-auto flex max-w-4xl flex-col items-center text-center">
-          <h1 className="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-4xl">
             LA SOLUTION UNIQUE POUR ACHETER
             <br />
             ET VENDRE VOS{" "}

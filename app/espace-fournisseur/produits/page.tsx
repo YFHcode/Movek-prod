@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { Button } from "@/components/ui/button";
-import { Plus, Package, Clock, CheckCircle2, AlertTriangle, Edit2 } from "lucide-react";
+import { Plus, Package, Clock, CheckCircle2, Edit2 } from "lucide-react";
 import Image from "next/image";
 
 export const metadata = {
