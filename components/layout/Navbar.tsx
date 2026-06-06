@@ -26,7 +26,7 @@ export default async function Navbar() {
         data: { user },
     } = await supabase.auth.getUser();
 
-    let isClient = false;
+    let userRole: "client" | "fournisseur" | "admin" | null = null;
     let unreadCount = 0;
 
     if (user) {
@@ -36,8 +36,9 @@ export default async function Navbar() {
             .eq("id", user.id)
             .single();
 
-        if (profile?.role === "client") {
-            isClient = true;
+        userRole = (profile?.role as "client" | "fournisseur" | "admin") || null;
+
+        if (userRole === "client") {
             const { count } = await supabase
                 .from("notifications")
                 .select("id", { count: "exact", head: true })
@@ -74,13 +75,26 @@ export default async function Navbar() {
 
                 {/* Desktop Actions */}
                 <div className="hidden items-center gap-3 lg:flex">
-                    {isClient && user ? (
+                    {user ? (
                         <>
-                            <NotificationBell userId={user.id} initialCount={unreadCount} />
-                            <Link href="/mon-compte">
+                            {userRole === "client" && (
+                                <NotificationBell userId={user.id} initialCount={unreadCount} />
+                            )}
+                            <Link href={
+                                userRole === "admin"
+                                    ? "/admin"
+                                    : userRole === "fournisseur"
+                                        ? "/espace-fournisseur"
+                                        : "/mon-compte"
+                            }>
                                 <Button className="rounded-full bg-movek-orange px-6 font-semibold text-white hover:brightness-110 transition-all">
                                     <LayoutDashboard className="mr-2 h-4 w-4" />
-                                    Mon Compte
+                                    {userRole === "admin"
+                                        ? "Administration"
+                                        : userRole === "fournisseur"
+                                            ? "Espace Fournisseur"
+                                            : "Mon Compte"
+                                    }
                                 </Button>
                             </Link>
                         </>
@@ -130,26 +144,39 @@ export default async function Navbar() {
                                 </Link>
                             ))}
                             <div className="mt-4 flex flex-col gap-3 border-t border-movek-border pt-4">
-                                {isClient && user ? (
+                                {user ? (
                                     <>
-                                        <Link href="/mon-compte">
+                                        <Link href={
+                                            userRole === "admin"
+                                                ? "/admin"
+                                                : userRole === "fournisseur"
+                                                    ? "/espace-fournisseur"
+                                                    : "/mon-compte"
+                                        } className="w-full">
                                             <Button className="w-full rounded-full bg-movek-orange font-semibold text-white hover:brightness-110">
                                                 <LayoutDashboard className="mr-2 h-4 w-4" />
-                                                Mon Compte
+                                                {userRole === "admin"
+                                                    ? "Administration"
+                                                    : userRole === "fournisseur"
+                                                        ? "Espace Fournisseur"
+                                                        : "Mon Compte"
+                                                }
                                             </Button>
                                         </Link>
-                                        <div className="flex justify-center">
-                                            <NotificationBell userId={user.id} initialCount={unreadCount} />
-                                        </div>
+                                        {userRole === "client" && (
+                                            <div className="flex justify-center">
+                                                <NotificationBell userId={user.id} initialCount={unreadCount} />
+                                            </div>
+                                        )}
                                     </>
                                 ) : (
                                     <>
-                                        <Link href="/fournisseur/register">
+                                        <Link href="/fournisseur/register" className="w-full">
                                             <Button className="w-full rounded-full bg-movek-orange font-semibold text-white hover:brightness-110">
                                                 Espace Fournisseur
                                             </Button>
                                         </Link>
-                                        <Link href="/client/login">
+                                        <Link href="/client/login" className="w-full">
                                             <Button
                                                 variant="outline"
                                                 className="w-full rounded-full border-movek-border text-white hover:bg-white/5"
