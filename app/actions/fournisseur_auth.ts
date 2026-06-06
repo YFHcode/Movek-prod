@@ -5,7 +5,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { redirect } from "next/navigation";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || "re_123");
 
 // ─── Register Fournisseur ───────────────────────────────────────────────
 export interface RegisterFournisseurState {

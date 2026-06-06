@@ -3,7 +3,7 @@
 import { createAdminClient } from "@/lib/supabase/admin";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || "re_123");
 
 // Simple in-memory rate limiting (good enough for dev/free tier)
 const submissionTracker = new Map<string, { count: number; resetAt: number }>();
