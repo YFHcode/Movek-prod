@@ -203,7 +203,7 @@ export async function notifyIntrouvableReply(email: string, prenom: string, orig
 // 6. ADMIN ALERT EMAILS (Sent to super admins)
 // ============================================================================
 
-const ADMIN_EMAIL = process.env.ADMIN_ALERT_EMAIL || "yousseffh88@gmail.com";
+const ADMIN_EMAIL = process.env.ADMIN_ALERT_EMAIL || "movekindustrie@gmail.com";
 
 export async function alertAdminNewClient(clientDetails: Record<string, unknown>) {
     const title = "🔔 Nouvel Acheteur Inscrit";

@@ -156,7 +156,7 @@ export async function addProduct(
         try {
             await resend.emails.send({
                 from: "notifications@resend.dev",
-                to: "yousseffh88@gmail.com",
+                to: "movekindustrie@gmail.com",
                 subject: `📦 Nouveau Produit à valider: ${article}`,
                 html: `
                   <div style="background:#0A1628;padding:40px;font-family:Arial;">
@@ -226,7 +226,7 @@ export async function deleteProduct(productId: string): Promise<DeleteProductSta
             try {
                 await resend.emails.send({
                     from: "notifications@resend.dev",
-                    to: "yousseffh88@gmail.com",
+                    to: "movekindustrie@gmail.com",
                     subject: `⚠️ Produit supprimé par fournisseur — avait ${interestsCount} intérêts`,
                     html: `
                       <div style="background:#0A1628;padding:40px;font-family:Arial;">
@@ -487,7 +487,7 @@ export async function updateProduct(
         try {
             await resend.emails.send({
                 from: "notifications@resend.dev",
-                to: "yousseffh88@gmail.com",
+                to: "movekindustrie@gmail.com",
                 subject: `📦 Produit modifié (à re-valider): ${article}`,
                 html: `
                   <div style="background:#0A1628;padding:40px;font-family:Arial;">

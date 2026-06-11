@@ -91,7 +91,7 @@ export async function submitIntrouvableRequest(
         try {
             await resend.emails.send({
                 from: "onboarding@resend.dev",
-                to: "yousseffh88@gmail.com",
+                to: "movekindustrie@gmail.com",
                 subject: `[MOVEK] Nouvelle demande introuvable - ${entreprise}`,
                 html: `
           <h2>Nouvelle demande de produit introuvable</h2>
